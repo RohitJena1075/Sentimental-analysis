@@ -4,28 +4,30 @@ A Python-based Sentiment Analysis project combining **BERT** and **Logistic Regr
 
 ---
 
-## 📂 Project Structure
+## 📁 Project Structure
 
+```
 Sentimental-analysis/
 │
 ├── data/
-│ └── Twitter_Data.csv # Dataset used
+│   └── Twitter_Data.csv            # Dataset used
 │
 ├── gui/
-│ └── gui.py # Tkinter GUI code
+│   └── gui.py                      # Tkinter GUI code
 │
 ├── model/
-│ ├── model.py # ML + ensemble logic
-│ ├── bert_model.py # BERT model loading
-│ ├── preprocessing.py # Text preprocessing
-│ ├── train_bert_runner.py # BERT training script
-│ ├── model.joblib # Saved Logistic Regression model
-│ └── vect.joblib # Saved TF-IDF vectorizer
+│   ├── model.py                    # ML + ensemble logic
+│   ├── bert_model.py               # BERT model loading
+│   ├── preprocessing.py            # Text preprocessing
+│   ├── train_bert_runner.py        # BERT training script
+│   ├── model.joblib                # Saved Logistic Regression model
+│   └── vect.joblib                 # Saved TF-IDF vectorizer
 │
 ├── .gitignore
-├── sentiment_ana.py # Entry point to launch GUI
+├── sentiment_ana.py                # Entry point to launch GUI
 ├── requirements.txt
 └── README.md
+```
 
 - yaml
 - Copy
