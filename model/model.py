@@ -5,6 +5,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import confusion_matrix, accuracy_score
+from model.bert_model import predict_bert_prob
 
 
 def train_and_save_model(corpus, labels, progress_callback=None):
@@ -38,15 +39,23 @@ def load_model_and_vectorizer():
         raise FileNotFoundError("Model or vectorizer file not found.") from e
 
 def predict_sentiment_ensemble(model, vectorizer, bert_model, bert_tokenizer, input_text):
+    # Ensure input is a string
+    if not isinstance(input_text, str):
+        raise ValueError("Input text must be a string.")
+
+    # Predict from Logistic Regression
     input_vector = vectorizer.transform([input_text])
-    prob_lr = model.predict_proba(input_vector)[0]              # e.g., [0.2, 0.3, 0.5]
+    prob_lr = model.predict_proba(input_vector)[0]  # e.g., [0.2, 0.3, 0.5]
+
+    # Predict from BERT
     prob_bert = predict_bert_prob(input_text, bert_model, bert_tokenizer)  # e.g., [0.1, 0.6, 0.3]
 
-    prob_bert = np.array(prob_bert)
-    avg_prob = (prob_lr + prob_bert) / 2
+    # Combine probabilities (soft voting)
+    avg_prob = (prob_lr + np.array(prob_bert)) / 2
 
+    # Final prediction
     prediction_index = np.argmax(avg_prob)
-    labels = ['negative', 'neutral', 'positive']  # Match this with your model training
+    labels = ['negative', 'neutral', 'positive']  # Ensure this order matches your training
     return labels[prediction_index]
 
 

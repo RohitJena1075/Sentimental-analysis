@@ -1,7 +1,6 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
-*.py[cod]
-*.so
+*.pyc
 
 # Virtual environments
 venv/
@@ -22,3 +21,19 @@ Thumbs.db
 # Log or temp files
 *.log
 *.tmp
+
+# Model files
+bert_model/
+bert_model.zip
+
+# Ignore model files and large folders
+bert_model/
+*.joblib
+__pycache__/
+*.zip
+*.safetensors
+
+# Ignore virtual environments or Python caches
+.venv/
+*.pyc
+.DS_Store
