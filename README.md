@@ -1,6 +1,8 @@
 # 🧠 Sentiment Analysis 
 
-A Python-based Sentiment Analysis project combining **BERT** and **Logistic Regression** in a **Soft Voting Ensemble** with a Tkinter GUI. Designed to classify textual sentiments from Twitter data into **Negative**, **Neutral**, or **Positive**.
+A Python-based Sentiment Analysis project combining **BERT** and **Logistic Regression** in a **Soft Voting Ensemble**, featuring both a **Tkinter GUI** and a **Streamlit Web App**. Designed to classify textual sentiments from Twitter data into **Negative**, **Neutral**, or **Positive**.
+
+---
 
 ---
 
@@ -9,22 +11,24 @@ A Python-based Sentiment Analysis project combining **BERT** and **Logistic Regr
 ```
 Sentimental-analysis/
 │
+├── app.py # Streamlit web interface
+│
 ├── data/
-│   └── Twitter_Data.csv            # Dataset used
+│ └── Twitter_Data.csv # Dataset used
 │
 ├── gui/
-│   └── gui.py                      # Tkinter GUI code
+│ └── gui.py # Tkinter GUI code
 │
 ├── model/
-│   ├── model.py                    # ML + ensemble logic
-│   ├── bert_model.py               # BERT model loading
-│   ├── preprocessing.py            # Text preprocessing
-│   ├── train_bert_runner.py        # BERT training script
-│   ├── model.joblib                # Saved Logistic Regression model
-│   └── vect.joblib                 # Saved TF-IDF vectorizer
+│ ├── model.py # ML + ensemble logic
+│ ├── bert_model.py # BERT model loading
+│ ├── preprocessing.py # Text preprocessing
+│ ├── train_bert_runner.py # BERT training script
+│ ├── model.joblib # Saved Logistic Regression model
+│ └── vect.joblib # Saved TF-IDF vectorizer
 │
 ├── .gitignore
-├── sentiment_ana.py                # Entry point to launch GUI
+├── sentiment_ana.py # Entry point for GUI
 ├── requirements.txt
 └── README.md
 ```
@@ -35,32 +39,36 @@ Sentimental-analysis/
 
 ---
 
+---
+
 ## 🚀 Features
 
-- ✔️ Soft Voting Ensemble of BERT + Logistic Regression
-- ✔️ Multi-class Sentiment: Negative, Neutral, Positive
-- ✔️ User-friendly GUI with `tkinter`
-- ✔️ Lightweight classical ML model + deep contextual language model
-- ✔️ Easy model saving and reuse (`joblib`)
-- ✔️ Real-time predictions from user input
+- ✔️ Soft Voting Ensemble: BERT + Logistic Regression  
+- ✔️ Multi-class Sentiment Classification: Negative, Neutral, Positive  
+- ✔️ Two Interfaces:
+  - 🖥️ Tkinter-based Desktop GUI  
+  - 🌐 Streamlit-based Web App  
+- ✔️ Pretrained models saved with `joblib`  
+- ✔️ Real-time predictions from user input  
+- ✔️ Lightweight classical ML + deep contextual language model  
 
 ---
 
 ## 🤖 Model Details
 
 ### 1. Logistic Regression (Baseline)
-- Uses TF-IDF vectorization
-- Fast and efficient for baseline sentiment classification
+- TF-IDF vectorization of text
+- Efficient and fast for text classification tasks
 
 ### 2. BERT Model
-- Pre-trained on large corpora
+- Based on Hugging Face’s `bert-base-uncased`
 - Fine-tuned on 2000 Twitter samples
-- Hugging Face `bert-base-uncased` backbone
-- Output: Sentiment logits and probabilities
+- Generates deep contextual embeddings
+- Returns logits and probabilities for sentiment classes
 
 ### 3. Soft Voting Ensemble
-- Combines probabilities of both models
-- Output = `argmax(weighted_average(probs))`
+- Combines output probabilities of BERT and Logistic Regression
+- Final prediction = `argmax(weighted_average(probabilities))`
 
 ---
 
@@ -70,7 +78,6 @@ Sentimental-analysis/
 
 - git clone https://github.com/YOUR_USERNAME/Sentimental-analysis.git
 - cd Sentimental-analysis
-
 ---
 
 ### 2. Setup Environment
@@ -95,18 +102,47 @@ Sentimental-analysis/
 
 ---
 
-### 📁 .gitignore Highlights
+### 🌐 Web Deployment (Hugging Face Spaces or Streamlit Sharing)
+To deploy online:
+- Track large model files using Git LFS:
 
-- markdown
+- bash
 - Copy
 - Edit
-- *.joblib
-- *.pt
+- git lfs install
+- git lfs track "bert_model/*"
+- git lfs track "model/*.joblib"
+- Push to Hugging Face or deploy using Streamlit Cloud.
+
+---
+
+### 📁 .gitignore Highlights
+
+# Byte-compiled / optimized / DLL files
 - __pycache__/
+- *.pyc
+
+# Virtual environments
 - .venv/
+- venv/
+- env/
+
+# Large model files
+- bert_model/
+- *.joblib
 - *.bin
 - *.pt
-- bert_model/
+- *.safetensors
+- *.zip
+
+# Jupyter & system files
+- .ipynb_checkpoints/
+- .DS_Store
+- Thumbs.db
+
+# Temp/log files
+- *.log
+- *.tmp
 
 ---
 
