@@ -66,27 +66,32 @@ Edit
 
 ### 1. Clone the Repository
 
-```bash
 git clone https://github.com/YOUR_USERNAME/Sentimental-analysis.git
 cd Sentimental-analysis
-2. Set Up Environment
-Recommended: Use a virtual environment.
 
+---
+
+### 2. Setup Environment
+
+Recommended: Use a virtual environment.
 bash
 Copy
 Edit
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
-3. Run the Application
+
+---
+
+### 3. Run the Application
+
 bash
 Copy
 Edit
 python sentiment_ana.py
 A GUI window will appear for sentiment input.
 
-📷 GUI Preview
-Coming soon... (Add screenshot of your GUI here if available)
+---
 
 📁 .gitignore Highlights
 markdown
@@ -120,10 +125,7 @@ GitHub
 
 🙌 Acknowledgements
 Hugging Face Transformers
-
 Scikit-learn
-
 Tkinter GUI
-
 Twitter Data contributors
 
