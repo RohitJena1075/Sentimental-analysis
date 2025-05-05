@@ -3,3 +3,5 @@ bert_model/config.json filter=lfs diff=lfs merge=lfs -text
 bert_model/*.json filter=lfs diff=lfs merge=lfs -text
 bert_model/*.safetensors filter=lfs diff=lfs merge=lfs -text
 bert_model/*.txt filter=lfs diff=lfs merge=lfs -text
+data/Twitter_Data.csv filter=lfs diff=lfs merge=lfs -text
+model/vect.joblib filter=lfs diff=lfs merge=lfs -text
