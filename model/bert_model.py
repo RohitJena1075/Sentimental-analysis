@@ -1,7 +1,11 @@
 import torch
 from torch.utils.data import DataLoader, Dataset
-from transformers import BertTokenizer, BertForSequenceClassification, AdamW
+from transformers import BertTokenizer, BertForSequenceClassification
+from torch.optim import AdamW
 import os
+import zipfile
+import requests
+import torch
 
 class BERTDataset(Dataset):
     def __init__(self, texts, labels, tokenizer, max_length=128):
@@ -72,7 +76,29 @@ def train_bert_model(texts, labels, save_path='./bert_model'):
     tokenizer.save_pretrained(save_path)
     print(f"✅ Model saved to: {save_path}")
 
-def load_bert_model(path='./bert_model'):
+DROPBOX_URL = "https://www.dropbox.com/scl/fi/sy3nq1y2aeu6hfimvgiaj/bert_model.zip?rlkey=8m9vh7alpsg5kvz0lr1lb1ezp&dl=1"
+MODEL_DIR = "./bert_model"
+
+def download_and_extract_model():
+    zip_path = "bert_model.zip"
+    
+    if not os.path.exists(MODEL_DIR):
+        print("🔽 Downloading BERT model from Dropbox...")
+        with requests.get(DROPBOX_URL, stream=True) as r:
+            with open(zip_path, "wb") as f:
+                for chunk in r.iter_content(chunk_size=8192):
+                    f.write(chunk)
+
+        print("📦 Extracting model...")
+        with zipfile.ZipFile(zip_path, "r") as zip_ref:
+            zip_ref.extractall(MODEL_DIR)
+        os.remove(zip_path)
+        print("✅ Model ready.")
+
+def load_bert_model(path=MODEL_DIR):
+    if not os.path.exists(os.path.join(path, "pytorch_model.bin")):
+        download_and_extract_model()
+
     tokenizer = BertTokenizer.from_pretrained(path)
     model = BertForSequenceClassification.from_pretrained(path)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")

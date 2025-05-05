@@ -5,7 +5,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import confusion_matrix, accuracy_score
-from bert_model import load_bert_model, predict_bert_prob
+
 
 def train_and_save_model(corpus, labels, progress_callback=None):
     vect = CountVectorizer(max_features=1500)
@@ -31,8 +31,8 @@ def train_and_save_model(corpus, labels, progress_callback=None):
 
 def load_model_and_vectorizer():
     try:
-        model = joblib.load("model.joblib")
-        vectorizer = joblib.load("vect.joblib")
+        model = joblib.load("model/model.joblib")
+        vectorizer = joblib.load("model/vect.joblib")
         return model, vectorizer
     except FileNotFoundError as e:
         raise FileNotFoundError("Model or vectorizer file not found.") from e
