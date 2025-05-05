@@ -40,13 +40,13 @@ def load_model_and_vectorizer():
 def predict_sentiment_ensemble(model, vectorizer, bert_model, bert_tokenizer, input_text):
     input_vector = vectorizer.transform([input_text])
     prob_lr = model.predict_proba(input_vector)[0]              # e.g., [0.2, 0.3, 0.5]
-    prob_bert = predict_bert_prob(input_text, bert_model, bert_tokenizer)  # Already a list like [0.1, 0.6, 0.3]
+    prob_bert = predict_bert_prob(input_text, bert_model, bert_tokenizer)  # e.g., [0.1, 0.6, 0.3]
 
-    # Ensure both are NumPy arrays before combining
     prob_bert = np.array(prob_bert)
     avg_prob = (prob_lr + prob_bert) / 2
 
-    prediction = np.argmax(avg_prob)
-    return prediction  # 0=Negative, 1=Neutral, 2=Positive
+    prediction_index = np.argmax(avg_prob)
+    labels = ['negative', 'neutral', 'positive']  # Match this with your model training
+    return labels[prediction_index]
 
 
