@@ -94,16 +94,16 @@ A GUI window will appear for sentiment input.
 ---
 
 📁 .gitignore Highlights
-markdown
-Copy
-Edit
-*.joblib
-*.pth
-__pycache__/
-.venv/
-*.bin
-*.pt
-bert_model/
+### markdown
+### Copy
+### Edit
+### *.joblib
+### *.pth
+### __pycache__/
+### .venv/
+### *.bin
+### *.pt
+### bert_model/
 
 ---
 
@@ -113,11 +113,11 @@ This project is licensed under the MIT License. See LICENSE for more information
 ---
 
 🤝 Contributing
-Pull requests are welcome! If you’d like to:
-Report bugs
-Suggest features
-Improve documentation or code
-Please fork the repo and submit a PR.
+# Pull requests are welcome! If you’d like to:
+# Report bugs
+# Suggest features
+# Improve documentation or code
+# Please fork the repo and submit a PR.
 
 ---
 
