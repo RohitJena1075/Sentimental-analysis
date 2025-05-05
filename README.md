@@ -27,9 +27,9 @@ Sentimental-analysis/
 ├── requirements.txt
 └── README.md
 
-yaml
-Copy
-Edit
+- yaml
+- Copy
+- Edit
 
 ---
 
@@ -66,45 +66,45 @@ Edit
 
 ### 1. Clone the Repository
 
-git clone https://github.com/YOUR_USERNAME/Sentimental-analysis.git
-cd Sentimental-analysis
+- git clone https://github.com/YOUR_USERNAME/Sentimental-analysis.git
+- cd Sentimental-analysis
 
 ---
 
 ### 2. Setup Environment
 
-Recommended: Use a virtual environment.
-bash
-Copy
-Edit
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-pip install -r requirements.txt
+- Recommended: Use a virtual environment.
+- bash
+- Copy
+- Edit
+- python -m venv venv
+- source venv/bin/activate  # On Windows: venv\Scripts\activate
+- pip install -r requirements.txt
 
 ---
 
 ### 3. Run the Application
 
-bash
-Copy
-Edit
-python sentiment_ana.py
-A GUI window will appear for sentiment input.
+- bash
+- Copy
+- Edit
+- python sentiment_ana.py
+- A GUI window will appear for sentiment input.
 
 ---
 
 ### 📁 .gitignore Highlights
 
-markdown
-Copy
-Edit
-*.joblib
-*.pt
- __pycache__/
-.venv/
-*.bin
-*.pt
-bert_model/
+- markdown
+- Copy
+- Edit
+- *.joblib
+- *.pt
+- __pycache__/
+- .venv/
+- *.bin
+- *.pt
+- bert_model/
 
 ---
 
@@ -114,24 +114,24 @@ This project is licensed under the MIT License. See LICENSE for more information
 ---
 
 ### 🤝 Contributing
-Pull requests are welcome! If you’d like to:
-Report bugs
-Suggest features
-Improve documentation or code
-Please fork the repo and submit a PR.
+- Pull requests are welcome! If you’d like to:
+- Report bugs
+- Suggest features
+- Improve documentation or code
+- Please fork the repo and submit a PR.
 
 ---
 
 ### 👤 Author
-Rohit Jena
-GitHub
+- Rohit Jena
+- GitHub
 
 ---
 
 ### 🙌 Acknowledgements
-Hugging Face Transformers
-Scikit-learn
-Tkinter GUI
-Twitter Data contributors
+- Hugging Face Transformers
+- Scikit-learn
+- Tkinter GUI
+- Twitter Data contributors
 
 
