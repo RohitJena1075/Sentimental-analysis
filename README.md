@@ -4,8 +4,6 @@ A Python-based Sentiment Analysis project combining **BERT** and **Logistic Regr
 
 ---
 
----
-
 ## 📁 Project Structure
 
 ```
@@ -37,7 +35,6 @@ Sentimental-analysis/
 - Copy
 - Edit
 
----
 
 ---
 
@@ -62,7 +59,8 @@ Sentimental-analysis/
 
 ### 2. BERT Model
 - Based on Hugging Face’s `bert-base-uncased`
-- Fine-tuned on 2000 Twitter samples
+- Fine-tuned on 2000 Twitter samples (increased accordingly)
+- user input dataset trained model can be made
 - Generates deep contextual embeddings
 - Returns logits and probabilities for sentiment classes
 
@@ -76,7 +74,7 @@ Sentimental-analysis/
 
 ### 1. Clone the Repository
 
-- git clone https://github.com/YOUR_USERNAME/Sentimental-analysis.git
+- git clone https://github.com/RohitJena1075/Sentimental-analysis.git
 - cd Sentimental-analysis
 ---
 
