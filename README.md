@@ -105,27 +105,33 @@ __pycache__/
 *.bin
 *.pt
 bert_model/
+
+---
+
 📜 License
 This project is licensed under the MIT License. See LICENSE for more information.
 
+---
+
 🤝 Contributing
 Pull requests are welcome! If you’d like to:
-
 Report bugs
-
 Suggest features
-
 Improve documentation or code
-
 Please fork the repo and submit a PR.
+
+---
 
 👤 Author
 Rohit Jena
 GitHub
+
+---
 
 🙌 Acknowledgements
 Hugging Face Transformers
 Scikit-learn
 Tkinter GUI
 Twitter Data contributors
+
 
