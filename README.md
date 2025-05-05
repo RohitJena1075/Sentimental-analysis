@@ -1,114 +1,129 @@
-📊 Sentimental Analysis with Soft Voting Ensemble (Logistic Regression + BERT)
-This project is a sentiment analysis system that uses a Soft Voting Ensemble of a traditional machine learning model (Logistic Regression) and a pretrained BERT transformer model to classify text as Positive or Negative. It also includes a Tkinter-based GUI for easy user interaction.
+# 🧠 Sentiment Analysis App
 
-🚀 Features
-✅ Combines Logistic Regression and BERT using soft voting for enhanced accuracy.
-✅ Lightweight traditional ML component for faster inference.
-✅ Powerful BERT component for deep semantic understanding.
-✅ GUI built with Tkinter for user-friendly interaction.
-✅ Easy to retrain, extend, or adapt for other domains.
+A Python-based Sentiment Analysis project combining **BERT** and **Logistic Regression** in a **Soft Voting Ensemble** with a Tkinter GUI. Designed to classify textual sentiments from Twitter data into **Negative**, **Neutral**, or **Positive**.
 
-📂 Project Structure
-plaintext
-Copy
-Edit
+---
+
+## 📂 Project Structure
+
 Sentimental-analysis/
 │
-├── data/                   # Dataset folder
-│   └── Twitter_Data.csv
+├── data/
+│ └── Twitter_Data.csv # Dataset used
 │
-├── model/                  # ML and BERT model-related files
-│   ├── model.py
-│   ├── model.joblib
-│   ├── vect.joblib
-│   └── train_bert_runner.py
+├── gui/
+│ └── gui.py # Tkinter GUI code
 │
-├── gui/                    # GUI application
-│   └── gui.py
+├── model/
+│ ├── model.py # ML + ensemble logic
+│ ├── bert_model.py # BERT model loading
+│ ├── preprocessing.py # Text preprocessing
+│ ├── train_bert_runner.py # BERT training script
+│ ├── model.joblib # Saved Logistic Regression model
+│ └── vect.joblib # Saved TF-IDF vectorizer
 │
-├── bert_model/             # (Ignored in repo) Contains BERT weights
-│
-├── preprocessing.py        # Preprocessing utilities
-├── sentiment_ana.py        # Main file to run GUI app
-├── requirements.txt        # Python dependencies
-├── .gitignore              # Ignore rules
-└── README.md               # Project documentation
+├── .gitignore
+├── sentiment_ana.py # Entry point to launch GUI
+├── requirements.txt
+└── README.md
 
-🧠 Model Details
-Traditional ML Model:
-Algorithm: Logistic Regression
-Trained on: TF-IDF features of cleaned tweets
-Tools: scikit-learn
-Transformer Model:
-Base Model: bert-base-uncased (HuggingFace)
-Fine-tuned on: 2000(case taken can be increased and train model) tweets from the dataset
-Output: Show statement quality
-Tools: transformers, torch
-Ensemble Strategy:
-Soft Voting: Weighted average of probability outputs from both models.
-Final Decision: The class with the highest average probability.
-
-💻 Installation and Setup
-🔧 Prerequisites
-Python 3.8+
-pip
-Git
-
-🛠️ Clone the Repo
-bash
+yaml
 Copy
 Edit
-git clone https://github.com/RohitJena1075/Sentimental-analysis.git
+
+---
+
+## 🚀 Features
+
+- ✔️ Soft Voting Ensemble of BERT + Logistic Regression
+- ✔️ Multi-class Sentiment: Negative, Neutral, Positive
+- ✔️ User-friendly GUI with `tkinter`
+- ✔️ Lightweight classical ML model + deep contextual language model
+- ✔️ Easy model saving and reuse (`joblib`)
+- ✔️ Real-time predictions from user input
+
+---
+
+## 🤖 Model Details
+
+### 1. Logistic Regression (Baseline)
+- Uses TF-IDF vectorization
+- Fast and efficient for baseline sentiment classification
+
+### 2. BERT Model
+- Pre-trained on large corpora
+- Fine-tuned on 2000 Twitter samples
+- Hugging Face `bert-base-uncased` backbone
+- Output: Sentiment logits and probabilities
+
+### 3. Soft Voting Ensemble
+- Combines probabilities of both models
+- Output = `argmax(weighted_average(probs))`
+
+---
+
+## 🛠️ Installation & Usage
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/YOUR_USERNAME/Sentimental-analysis.git
 cd Sentimental-analysis
+2. Set Up Environment
+Recommended: Use a virtual environment.
 
-📦 Install Dependencies
 bash
 Copy
 Edit
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
-
-📥 Download BERT Model Weights (Optional)
-If not included, run the fine-tuning or modify the bert_model.py to automatically download bert-base-uncased using HuggingFace:
-
-python
-Copy
-Edit
-from transformers import BertTokenizer, BertForSequenceClassification
-model = BertForSequenceClassification.from_pretrained('bert-base-uncased')
-tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
-
-🏁 How to Run
-🖥️ Launch the GUI
+3. Run the Application
 bash
 Copy
 Edit
 python sentiment_ana.py
-A GUI will open where you can type a sentence or tweet, and the system will classify it as Positive or Negative and Neutral.
+A GUI window will appear for sentiment input.
 
+📷 GUI Preview
+Coming soon... (Add screenshot of your GUI here if available)
 
-👥 Collaboration
-We welcome contributions!
-📌 How to Contribute:
-Fork the repo.
-Create a new branch (git checkout -b feature-name).
-Make changes and commit (git commit -m 'Add new feature').
-Push to your fork (git push origin feature-name).
-Open a Pull Request.
-
-
-📄 License
-This project is licensed under the MIT License.
-swift
+📁 .gitignore Highlights
+markdown
 Copy
 Edit
-MIT License
-Copyright (c) 2025 Rohit Jena
-Permission is hereby granted, free of charge, to any person obtaining a copy...
-For full license, refer to LICENSE file.
+# Ignored files/folders
+*.joblib
+*.pth
+__pycache__/
+.venv/
+*.bin
+*.pt
+bert_model/
+📜 License
+This project is licensed under the MIT License. See LICENSE for more information.
+
+🤝 Contributing
+Pull requests are welcome! If you’d like to:
+
+Report bugs
+
+Suggest features
+
+Improve documentation or code
+
+Please fork the repo and submit a PR.
+
+👤 Author
+Rohit Jena
+GitHub
 
 🙌 Acknowledgements
-HuggingFace Transformers
-scikit-learn
-Tkinter GUI Toolkit
+Hugging Face Transformers
 
+Scikit-learn
+
+Tkinter GUI
+
+Twitter Data contributors
 
