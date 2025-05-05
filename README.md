@@ -1,4 +1,4 @@
-# 🧠 Sentiment Analysis App
+# 🧠 Sentiment Analysis 
 
 A Python-based Sentiment Analysis project combining **BERT** and **Logistic Regression** in a **Soft Voting Ensemble** with a Tkinter GUI. Designed to classify textual sentiments from Twitter data into **Negative**, **Neutral**, or **Positive**.
 
