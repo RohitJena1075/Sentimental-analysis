@@ -97,7 +97,6 @@ A GUI window will appear for sentiment input.
 markdown
 Copy
 Edit
-# Ignored files/folders
 *.joblib
 *.pth
 __pycache__/
