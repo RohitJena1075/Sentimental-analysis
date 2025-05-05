@@ -124,7 +124,7 @@ This project is licensed under the MIT License. See LICENSE for more information
 
 ### 👤 Author
 - Rohit Jena
-- GitHub
+- GitHub (https://github.com/RohitJena1075)
 
 ---
 
