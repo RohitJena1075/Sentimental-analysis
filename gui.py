@@ -2,7 +2,8 @@ import tkinter as tk
 from tkinter import *
 from tkinter import messagebox
 from tkinter import ttk
-from model import load_model_and_vectorizer, predict_sentiment
+from model import load_model_and_vectorizer, predict_sentiment_ensemble
+from bert_model import load_bert_model
 
 class SentimentAnalysisApp:
     def __init__(self, root):
@@ -12,6 +13,8 @@ class SentimentAnalysisApp:
         self.root.configure(bg="black")
         self.model = None
         self.vectorizer = None
+        self.bert_model = None
+        self.bert_tokenizer = None
         self.progress = None
         self.setup_ui()
 
@@ -28,13 +31,22 @@ class SentimentAnalysisApp:
             return
 
         try:
-            # Load the model and vectorizer if not already loaded
             if self.model is None or self.vectorizer is None:
                 self.model, self.vectorizer = load_model_and_vectorizer()
 
-            # Predict sentiment
-            sentiment = predict_sentiment(self.model, self.vectorizer, review)
-            messagebox.showinfo("Result", f"Predicted Sentiment: {sentiment}")
+            if self.bert_model is None or self.bert_tokenizer is None:
+                self.bert_model, self.bert_tokenizer = load_bert_model()
+
+            sentiment = predict_sentiment_ensemble(self.model, self.vectorizer, self.bert_model, self.bert_tokenizer, review)
+
+            if sentiment == 0:
+              label = "Negative"
+            elif sentiment == 1:
+              label = "Neutral"
+            else:
+              label = "Positive"
+
+            messagebox.showinfo("Result", f"Predicted Sentiment: {label}")
         except FileNotFoundError as e:
             messagebox.showerror("Error", str(e))
 
@@ -53,6 +65,5 @@ class SentimentAnalysisApp:
         button3 = Button(self.root, text="Exit", font=("Arial", 15, "bold"), bg="black", fg="white", command=self.exit)
         button3.pack(pady=10)
 
-        # Add progress bar
         self.progress = ttk.Progressbar(self.root, orient=HORIZONTAL, length=300, mode='indeterminate')
         self.progress.pack(pady=10)
