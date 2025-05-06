@@ -1,8 +1,5 @@
 # 🧠 Sentiment Analysis 
-![Hugging Face](https://img.shields.io/badge/Frontend-Hugging--Face-blue)
-![Render](https://img.shields.io/badge/Backend-Render-green)
-![Python](https://img.shields.io/badge/Python-3.10%2B-yellow)
-![License](https://img.shields.io/badge/License-MIT-purple)
+
 A Python-based Sentiment Analysis project combining **BERT** and **Logistic Regression** in a **Soft Voting Ensemble**, featuring both a **Tkinter GUI** and a **Streamlit Web App**. Designed to classify textual sentiments from Twitter data into **Negative**, **Neutral**, or **Positive**.
 
 ---
